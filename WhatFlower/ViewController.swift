@@ -13,7 +13,7 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
     let wikiPediaURL = "https://en.wikipedia.org/w/api.php"
     
@@ -34,9 +34,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var flowerDescription: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var flowerDescriptionView: UIView!
+    
+    @IBOutlet weak var flowerDescriptionViewWidth: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.delegate = self
+        
+        flowerDescriptionViewWidth.constant = scrollView.frame.width
         
         flowerDescription.text = ""
         
@@ -150,6 +159,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func getFlowerInfo(fromJSON: JSON) {
         
         let pageID = fromJSON["query"]["pageids"][0]
+        
+        print(pageID)
 
         if let pageIDAsString = pageID.string {
 

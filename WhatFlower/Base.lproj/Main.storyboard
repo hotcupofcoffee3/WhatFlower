@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMQ-a6-V3m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMQ-a6-V3m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,21 +25,34 @@
                                     <constraint firstAttribute="width" secondItem="pjW-x9-mcv" secondAttribute="height" multiplier="1:1" id="4Sj-Hq-JJC"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ut4-JB-Pnw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut4-JB-Pnw">
                                 <rect key="frame" x="20" y="459" width="335" height="188"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDa-LF-uEE">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oZ-BR-VhX" userLabel="Flower Description View">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flower Info..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDa-LF-uEE">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="FDa-LF-uEE" firstAttribute="leading" secondItem="4oZ-BR-VhX" secondAttribute="leading" id="3io-b4-GmU"/>
+                                            <constraint firstAttribute="bottom" secondItem="FDa-LF-uEE" secondAttribute="bottom" id="QXi-SO-Tdp"/>
+                                            <constraint firstAttribute="width" constant="335" id="eDw-2c-8LN"/>
+                                            <constraint firstAttribute="trailing" secondItem="FDa-LF-uEE" secondAttribute="trailing" id="eda-8L-gW0"/>
+                                            <constraint firstItem="FDa-LF-uEE" firstAttribute="top" secondItem="4oZ-BR-VhX" secondAttribute="top" id="pLA-fg-xNV"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FDa-LF-uEE" secondAttribute="bottom" id="5JB-Hc-qFr"/>
-                                    <constraint firstItem="FDa-LF-uEE" firstAttribute="leading" secondItem="ut4-JB-Pnw" secondAttribute="leading" id="bbL-SZ-imY"/>
-                                    <constraint firstAttribute="trailing" secondItem="FDa-LF-uEE" secondAttribute="trailing" id="e8H-8I-Eki"/>
-                                    <constraint firstItem="FDa-LF-uEE" firstAttribute="top" secondItem="ut4-JB-Pnw" secondAttribute="top" id="f21-KP-s89"/>
+                                    <constraint firstAttribute="bottom" secondItem="4oZ-BR-VhX" secondAttribute="bottom" id="Anh-ND-ONa"/>
+                                    <constraint firstItem="4oZ-BR-VhX" firstAttribute="leading" secondItem="ut4-JB-Pnw" secondAttribute="leading" id="Kia-ai-FaN"/>
+                                    <constraint firstItem="4oZ-BR-VhX" firstAttribute="top" secondItem="ut4-JB-Pnw" secondAttribute="top" id="L5G-cv-l1V"/>
+                                    <constraint firstAttribute="trailing" secondItem="4oZ-BR-VhX" secondAttribute="trailing" id="hHa-tU-iwC"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -64,7 +77,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="flowerDescription" destination="FDa-LF-uEE" id="oLc-Bm-ewb"/>
+                        <outlet property="flowerDescriptionView" destination="4oZ-BR-VhX" id="CrB-qW-tVQ"/>
+                        <outlet property="flowerDescriptionViewWidth" destination="eDw-2c-8LN" id="1ol-dU-CuH"/>
                         <outlet property="imageView" destination="pjW-x9-mcv" id="JD5-9M-Fga"/>
+                        <outlet property="scrollView" destination="ut4-JB-Pnw" id="vUs-NG-DVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
